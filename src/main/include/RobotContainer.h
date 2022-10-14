@@ -9,6 +9,7 @@
 #include "commands/ExampleCommand.h"
 #include "subsystems/ExampleSubsystem.h"
 
+#include "GamepadF310.h"
 #include "subsystems/Gearbox.h"
 
 /**
@@ -30,6 +31,8 @@ class RobotContainer {
   ExampleCommand m_autonomousCommand;
 
   Gearbox m_gearbox;
+
+  GamepadF310 i_f310 { 0 };
 
   void ConfigureButtonBindings();
 };

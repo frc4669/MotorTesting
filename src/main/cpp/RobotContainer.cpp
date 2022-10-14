@@ -4,10 +4,15 @@
 
 #include "RobotContainer.h"
 
+#include <frc2/command/RunCommand.h>
+
 RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
   // Initialize all of your commands and subsystems here
   
-  
+  m_gearbox.SetDefaultCommand(frc2::RunCommand(
+    [this] { m_gearbox.Go(i_f310.getRightJoyY()); },
+    { &m_gearbox }
+  ));
 
   // Configure the button bindings
   ConfigureButtonBindings();
